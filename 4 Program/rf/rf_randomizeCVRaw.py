@@ -7,8 +7,8 @@ import numpy as np
 import importDataRaw
 modes=['gesture','length']
 mode = int(input("0: gesture, 1: length: ")) # 0 for gesture, 1 for length
-train = importDataRaw.importData('wristband/v4_train.xlsx',mode)
-test = importDataRaw.importData('wristband/v4_test.xlsx',mode)
+train = importDataRaw.importData('../../3 Data/wristbands/v4_train.xlsx',mode)
+test = importDataRaw.importData('../../3 Data/wristbands/v4_test.xlsx',mode)
 
 x_train, x_test, y_train, y_test = train_test_split(train.features,train.labels,train_size=0.7, random_state=9999)
 # print(x_train)

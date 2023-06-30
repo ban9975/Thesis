@@ -2,7 +2,7 @@
 #include <Wire.h>
 #include <Adafruit_ADS1X15.h>
 
-SoftwareSerial BTSerial(10,11);
+SoftwareSerial BTSerial(8, 9);
 Adafruit_ADS1015 ads;
 bool start = false;
 byte btRead;

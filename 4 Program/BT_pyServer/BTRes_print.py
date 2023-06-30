@@ -5,7 +5,6 @@ interf = interface.interface()
 
 def main():
     nSensor = 1
-    row = 1
     iter = int(input("Please input the number of iterations: "))
     while iter != 0:
         interf.write(str(iter))

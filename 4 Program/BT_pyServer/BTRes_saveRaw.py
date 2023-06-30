@@ -1,6 +1,5 @@
 from pickle import NONE
 import interface
-
 from openpyxl import *
 from datetime import datetime
 
@@ -8,7 +7,7 @@ interf = interface.interface()
 
 def main():
     nSensor = 4
-    fileName = 'wristband/v7/adi_v3_1ADC_average.xlsx'
+    fileName = '../../3 Data/wristbands/v4_test.xlsx'
     gestures = ['down', 'up', 'thumb', 'little finger', 'stretch', 'fist', 'rest']
     workbook = load_workbook(fileName)
     start = datetime.now()
@@ -53,7 +52,6 @@ def main():
                 res = 300 * avg[k] / (5000 - avg[k] * 3)
                 worksheet.cell(row=row, column=k+4, value=round(res, 2))
                 workbook.save(fileName)
-                # if not (k == 1 or k == 2 or k == 4 or k == 6):
                 print(round(res, 2), end='\t')
             print()
             worksheet.cell(row=row, column=3, value=str(datetime.now()-start))

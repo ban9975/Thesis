@@ -1,7 +1,5 @@
 import BT
 
-# hint: You may design additional functions to execute the input command, which will be helpful when debugging :)
-
 class interface:
     def __init__(self):
         print("")
@@ -9,8 +7,8 @@ class interface:
         print("")
         self.ser = BT.bluetooth()
         # COM adi: 12, ban: 5
-        while(not self.ser.do_connect("COM12")):
-            self.ser.do_connect("COM12")
+        while(not self.ser.do_connect("COM5")):
+            self.ser.do_connect("COM5")
         self.write('0')
 
     def read(self):

@@ -2,11 +2,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import sys
 import math
-mode=int(input('mode: '))
+mode=int(input('mode (0: gesture, 1: length, 2: raw): '))
 modes=['gesture','length','raw']
-version = 'v4'
-trainName = 'wristband/cal/'+version+'_train_'+modes[mode]+'.xlsx'
-testName = 'wristband/cal/'+version+'_test_'+modes[mode]+'.xlsx'
+version = input('version (v?): ')
+trainName = '../../5 Result/wristband/calibrated/'+version+'_train_'+modes[mode]+'.xlsx'
+testName = '../../5 Result/wristband/calibrated/'+version+'_test_'+modes[mode]+'.xlsx'
 sheetName = "Sheet1"
 plotName = version+'_'+modes[mode]
 train = pd.read_excel(trainName, sheet_name=sheetName)
@@ -32,4 +32,4 @@ for i in range(4):
     plt.ylabel('gesture')
     plt.xlabel('calibration with '+modes[mode]+' data')
     plt.grid(True)
-    plt.savefig('wristband/cal/plot/'+plotName+'_{}'.format(i)+'.png')
+    plt.savefig('../../5 Result/wristband/calibrated/plot/'+plotName+'_{}'.format(i)+'.png')

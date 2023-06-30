@@ -1,7 +1,5 @@
 from time import sleep
 import serial
-# these codes are for bluetooth
-# hint: please check the function "sleep". how does it work?
 
 class bluetooth:
     def __init__(self):
@@ -34,7 +32,6 @@ class bluetooth:
         self.ser.write(send)
 
     def SerialReadInt(self):
-        # TODO: Get the information from Bluetooth. Notice that the return type should be transformed into hex.
         waiting = self.ser.in_waiting
         if waiting >= 0:
             rv = self.ser.read(2)
