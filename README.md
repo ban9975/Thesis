@@ -36,7 +36,12 @@ We saved the measured data in **3 Data/materials/**. While running, the program 
 * In each run, the program asks how many iterations you'd like to test. The default value is 1 iteration.  
 * Enter `e` to close the program.  
 #### Fit the Surface for **calibration with length**
-
+* Open **4 Program/plot/draw3D.m**.
+* Specify the file containing measurement data in line 13.
+  ```Matlab
+  resT = readtable("<PATH_TO_FILE>", opts, "UseExcel", false);
+  ```
+* After running the code, the parameters of fit surface will be shown on the console. These values are used in `calibration with length` in the training phase.
 ### Resistance Values of Gestures
 #### Gestures Set
 ![gestures](https://github.com/ban9975/Thesis/assets/55187987/685aa1ff-0447-476d-bf9d-69ab3b50d990)  
