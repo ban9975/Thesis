@@ -16,7 +16,7 @@ We used Arduino Uno to collect signals from conductive rubber cords. The analog 
 #### Bluetooth Connection  
 * Bluetooth program cou be found in **4 Program/BT_pyServer/**.  
 * Find out which COM port does your PC use to connect to the bluetooth module.  
-  Find the COM port by selecting **Start > Settings > Devices > Bluetooth & other devices** and then **More Bluetooth options > COM ports**. Our bluetooth module is called `BioLabG2` here.  
+  Find the COM port (Windows) by selecting **Start > Settings > Devices > Bluetooth & other devices** and then **More Bluetooth options > COM ports**. Our bluetooth module is called `BioLabG2` here.  
   ![btCOM](https://github.com/ban9975/Thesis/assets/55187987/8a3abade-cf5e-41eb-8abc-b69b76737acb)
 * Change the COM port in **4 Program/BT_pyServer/interface.py**, line 10, 11.
   ```python
@@ -78,3 +78,6 @@ We saved the measured data in **3 Data/wristbands/**. While running, the program
 > cd "4 Program/rf/"
 > python rfRaw.py
 ```
+The program will ask you to choose the calibration mode and the version of the wristband. And then, you can decide whether to save the calibrated data. The calibrated data will be saved in **5 Result/wristband/calibrated/** if you choose to save them. The `calibration with length` mode takes more time than other calibration modes.  
+
+After finish the prediction, the program will show the training/validation/testing accuracy, respectively, on the console, and then generate the confusion matrices for validation and testing results. The confusion matrices are saved in **5 Result/wristband/conMat/**.
