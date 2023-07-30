@@ -3,7 +3,7 @@ import interface
 from openpyxl import *
 from datetime import datetime
 
-interf = interface.interface()
+# interf = interface.interface()
 
 def main():
     nSensor = 4
