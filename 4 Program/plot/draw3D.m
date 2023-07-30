@@ -10,7 +10,7 @@ opts.VariableNames = ["length", "VarName2", "VarName3", "VarName4", "VarName5", 
 opts.VariableTypes = ["double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double", "double"];
 
 % Import the data
-resT = readtable("D:\NTU\Ben50\Material_plots\rubber cord\newCord.xlsx", opts, "UseExcel", false);
+resT = readtable("../../3 Data/materials/newCord_20.xlsx", opts, "UseExcel", false);
 res = table2array(resT);
 % disp(res);
 % 2, 4, 6, 8, 10

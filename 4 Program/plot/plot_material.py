@@ -31,17 +31,15 @@ while(True):
                 # Rubber sheet & jersey: 3 + _reps * j + k
                 # Rubber cord & angle: 1 + _reps * j + k
                 val = xls[xls.columns[1 + _reps * j + k]][rows[i]]
-                print(val, end = ' ')
                 data[j][i] += val
                 mean[i] += val
                 sigma[i] += val ** 2
             data[j][i] /= _reps
-            # print(sigma[i])
         mean[i] /= (_sets*_reps)
         sigma[i] = math.sqrt((sigma[i] / (_sets*_reps)) - mean[i] ** 2)
-        print('\nmean[{}] = {}'. format(i, mean[i]))
-        print('sigma[{}] = {}'. format(i, sigma[i]))
-        print()
+        # print('\nmean[{}] = {}'. format(i, mean[i]))
+        # print('sigma[{}] = {}'. format(i, sigma[i]))
+        # print()
 
     # # x: reps
     # data = [[0] * _reps for i in range(len(rows))]
@@ -61,11 +59,11 @@ while(True):
     plt.title(plotName)
     plt.ylabel('Resistance (Ohm)')
     plt.xlabel('Length (cm)')
-    plt.legend(loc='lower right')
     # plt.xlabel('Reps')
     # plt.xlabel('Angle (deg)')
+    plt.legend(loc='lower right')
     plt.grid(True)
-    plt.savefig('rubberCord/plot/{}.png'.format(plotName))
+    plt.savefig('../../5 Result/rubberCord/{}.png'.format(plotName))
     plt.show()
     plt.close()
 
@@ -76,7 +74,7 @@ while(True):
     plt.ylabel('Resistance (Ohm)')
     plt.xlabel('Length (cm)')
     plt.grid(True)
-    plt.savefig('rubberCord/plot/{}_SD.png'.format(plotName))
+    plt.savefig('../../5 Result/rubberCord/{}_SD.png'.format(plotName))
     plt.show()
 
     

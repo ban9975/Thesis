@@ -7,7 +7,7 @@ from mlxtend.plotting import plot_confusion_matrix
 
 import importDataRaw
 
-modes=['gesture','length', 'raw']
+modes=['gesture','length','raw']
 mode = int(input("0: gesture, 1: length, 2: raw: "))
 version = input('version (v?): ')
 trainFile = '../../3 Data/wristbands/' + version + '_train.xlsx'

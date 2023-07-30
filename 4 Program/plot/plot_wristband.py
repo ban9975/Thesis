@@ -32,4 +32,5 @@ for i in range(4):
     plt.ylabel('gesture')
     plt.xlabel('calibration with '+modes[mode]+' data')
     plt.grid(True)
+    plt.show()
     plt.savefig('../../5 Result/wristband/calibrated/plot/'+plotName+'_{}'.format(i)+'.png')
