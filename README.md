@@ -31,6 +31,7 @@ We saved the measured data in **3 Data/materials/**. While running, the program 
 * Upload **4 Program/BT_Arduino/BT_resistance/BT_resistance.ino** to Arduino board.
 * On PC, run the measuring program. This program measures one value at a time.  
   ```bash
+  > cd "4 Program/BT_pyServer/"
   > python BTRes_print.py
   ```
 * In each run, the program asks how many iterations you'd like to test. The default value is 1 iteration.  
@@ -42,6 +43,18 @@ We saved the measured data in **3 Data/materials/**. While running, the program 
   resT = readtable("<PATH_TO_FILE>", opts, "UseExcel", false);
   ```
 * After running the code, the parameters of fit surface will be shown on the console. These values are used in `calibration with length` in the training phase.
+ * Key the values into **4 Program/rf/importDataRaw.py**, line 6\~14 and 29\~37. The values here are generated from `fitType="poly23"`.
+   ```python
+   p00 = -0.619036213083872
+   p10 = -0.030800170966657
+   p01 = 1.688322998396718
+   p20 = -0.000611641511412
+   p11 = 0.057794560352152
+   p02 = -1.531793071531490
+   p21 = 0.000488277935669
+   p12 = -0.025444713548645
+   p03 = 0.462421072634841
+   ```
 ### Resistance Values of Gestures
 #### Gestures Set
 ![gestures](https://github.com/ban9975/Thesis/assets/55187987/685aa1ff-0447-476d-bf9d-69ab3b50d990)  
@@ -51,6 +64,7 @@ We saved the measured data in **3 Data/wristbands/**. While running, the program
 * Specify which file you want to write in `fileName` in **4 Program/BT_pyServer/BTRes_saveRaw.py**, line 10. Note that this file should be an existing file.  
 * On PC, run the measuring program. This program measures four values at a time.  
   ```bash
+  > cd "4 Program/BT_pyServer/"
   > python BTRes_saveRaw.py
   ```
   The program will ask you which measuring mode you want to use once you run it. There are two modes: `calibration` and `random`.
@@ -60,3 +74,7 @@ We saved the measured data in **3 Data/wristbands/**. While running, the program
     In random mode, the program asks you to perform each gesture respectively. In our experiment, we collect 105 measurements for training dataset and 35 measurements for testing dataset.  
  * Enter `e` to close the program.
 ### Recognizing Gestures Using Random Forest
+```bash
+> cd "4 Program/rf/"
+> python rfRaw.py
+```
