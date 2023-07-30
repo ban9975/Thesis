@@ -10,12 +10,44 @@ In this study, we first conducted extensive measurements on conductive rubber co
 ## Experiment Instruction
 ### Video Link
 ### Collecting Data  
-* Hardware Setup  
-We use Arduino Uno to collect signals from conductive rubber cords. The analog signals would be converted to digital signals by ADC module ADS1015 first, and then transferred to PC via bluetooth module HC-05.  
+* Hardware setup.  
+We used Arduino Uno to collect signals from conductive rubber cords. The analog signals would be converted to digital signals by ADC module ADS1015 first, and then transferred to PC via bluetooth module HC-05.  
 ![system_s](https://github.com/ban9975/Thesis/assets/55187987/2b7a6970-4ab9-4a81-9c34-197958233fa6)
-* Connecting Arduino and PC Using Bluetooth  
-  * Bluetooth program Could be found in **4 Program/BT_pyServer/**   
+* Connect arduino and PC using Bluetooth.  
+  * Bluetooth program cou be found in **4 Program/BT_pyServer/**.  
   * Find out which COM port does your PC use to connect to the bluetooth module.  
-The COM port could be found by selecting **Start > Settings > Devices > Bluetooth & other devices** and then **More Bluetooth options**. Our bluetooth module is called `BioLabG2` here.
+    Find the COM port by selecting **Start > Settings > Devices > Bluetooth & other devices** and then **More Bluetooth options > COM ports**. Our bluetooth module is called `BioLabG2` here.  
+    ![btCOM](https://github.com/ban9975/Thesis/assets/55187987/8a3abade-cf5e-41eb-8abc-b69b76737acb)
+ * Change the COM port in **4 Program/BT_pyServer/interface.py**, line 10, 11.
+   ```python
+   while(not self.ser.do_connect("<YOUR_COM_PORT>")):
+     self.ser.do_connect("<YOUR_COM_PORT>")
+   ```
 ### Stretch-Resistance model of Materials
-
+We saved the measured data in **3 Data/materials/**. While running, the program printed the resistance values on console. We then copied these values into excel files manually.  
+* Connect the testing sample between A0 on ADC and ground.  
+  ![circuit_sample](https://github.com/ban9975/Thesis/assets/55187987/5d4a4e1b-4807-4420-b676-9e12acc4c3ca)
+* Upload **4 Program/BT_Arduino/BT_resistance/BT_resistance.ino** to Arduino board.
+* On PC, run the measuring program. This program measures one value at a time.  
+  ```bash
+  > python BTRes_print.py
+  ```
+* In each run, the program asks how many iterations you'd like to test. The default value is 1 iteration.  
+* Enter `e` to close the program.  
+### Collecting Resistance Values of Gestures
+There are 7 gestures:  
+![gestures](https://github.com/ban9975/Thesis/assets/55187987/685aa1ff-0447-476d-bf9d-69ab3b50d990)  
+We saved the measured data in **3 Data/wristbands/**. While running, the program saved the measured values to the specified file automatically.
+* Upload **4 Program/BT_Arduino/BT_resistance/BT_4resistance.ino** to Arduino board.
+* Specify which file you want to write in `fileName` in **4 Program/BT_pyServer/BTRes_saveRaw.py**, line 10. Note that this file should be an existing file.  
+* On PC, run the measuring program. This program measures four values at a time.  
+  ```bash
+  > python BTRes_saveRaw.py
+  ```
+  The program will ask you which measuring mode you want to use once you run it. There are two modes: `calibration` and `random`.
+ *  Measure in `calibration` mode.  
+    We use `stretch` gesture as the calibration gesture. In calibrication mode, the program asks you to perform `stretch` several times. In our experiment, we collect 15 measurements for calibration data.  
+ *  Measure in `random` mode.  
+    In random mode, the program asks you to perform each gesture respectively. In our experiment, we collect 105 measurements for training dataset and 35 measurements for testing dataset.  
+ * Enter `e` to close the program.
+### 
