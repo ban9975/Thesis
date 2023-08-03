@@ -7,8 +7,8 @@ class interface:
         print("")
         self.ser = BT.bluetooth()
         # COM adi: 12, ban: 5
-        while(not self.ser.do_connect("COM5")):
-            self.ser.do_connect("COM5")
+        while(not self.ser.do_connect("COM6")):
+            self.ser.do_connect("COM6")
         self.write('0')
 
     def read(self):

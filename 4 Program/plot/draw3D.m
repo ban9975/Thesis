@@ -13,9 +13,14 @@ opts.VariableTypes = ["double", "double", "double", "double", "double", "double"
 resT = readtable("../../3 Data/materials/newCord_20.xlsx", opts, "UseExcel", false);
 res = table2array(resT);
 % disp(res);
+
+% 1, 2, 3, 4
+start_ = [2, 6, 12, 20];
+end_ = [4, 10, 18, 28];
+
 % 2, 4, 6, 8, 10
-start_ = [6, 20, 30, 44, 62];
-end_ = [10, 28, 42, 60, 82];
+% start_ = [6, 20, 30, 44, 62];
+% end_ = [10, 28, 42, 60, 82];
 % all
 % start_ = [2, 6, 12, 20, 30, 44, 62];
 % end_ = [4, 10, 18, 28, 42, 60, 82];
@@ -23,7 +28,7 @@ end_ = [10, 28, 42, 60, 82];
 xx = [];
 yy = [];
 zz = [];
-for i = 1: 5
+for i = 1: 4
     len = res(start_(i), 1);
     for j = start_(i):end_(i)
         for k = 2:11

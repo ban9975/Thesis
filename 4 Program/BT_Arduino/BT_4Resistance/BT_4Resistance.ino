@@ -31,7 +31,6 @@ void loop() {
       for(byte j = 0; j < btRead; ++j) {
         for(byte i = 0; i < 20; ++i) {
           for(byte k = 0; k < 4; ++k) {
-            adc[k] = ads.readADC(k);
             adc[k] = ads.readADC_SingleEnded(k);
             BTPrint(adc[k]);
 //            Serial.print(float(adc[k])*300/(5000-float(adc[k])*3));
