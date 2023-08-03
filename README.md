@@ -9,6 +9,7 @@ Therefore, this study aims to improve this wristband design by retaining the ide
 In this study, we first conducted extensive measurements on conductive rubber cord to build a model for the resistance change of it. We found that resistance value exhibits significant changes when subjected to small extensions. Based on this discovery, we decided to use conductive rubber cord as a sensor on the wristband and employ a resistance sensing approach for gesture recognition. We then created the wristband using conductive rubber cords and denim fabric. By employing the previously developed resistance model and a calibration algorithm for the collected data, we fed the calibrated data into a Random Forest Classifier to recognize the gestures made by the user.
 ## Experiment Instruction
 ### Video Link
+https://youtu.be/pAtT-bNWfoI
 ### System Overview   
 #### Hardware Setup
 We used Arduino Uno to collect signals from conductive rubber cords. The analog signals would be converted to digital signals by ADC module ADS1015 first, and then transferred to PC via bluetooth module HC-05.  
